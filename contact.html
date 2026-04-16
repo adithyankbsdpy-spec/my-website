@@ -53,21 +53,6 @@
         .btn:hover {
             background: #ff416c;
         }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 15px 25px;
-            border-radius: 10px;
-            color: white;
-            font-weight: bold;
-        }
-
-        .success { background: #28a745; }
-        .error { background: #dc3545; }
     </style>
 </head>
 
@@ -90,14 +75,16 @@
 
         <h2>Send Message 📩</h2>
 
-        <form id="contactForm">
+        <!-- ✅ WORKING FORM -->
+        <form action="https://formspree.io/f/xaqaqjvk" method="POST">
 
-            <!-- ✅ IMPORTANT HIDDEN FIELDS -->
             <input type="hidden" name="_subject" value="New message from website">
             <input type="hidden" name="_template" value="table">
 
             <input type="text" name="name" placeholder="Enter your name" required>
+
             <input type="email" name="email" placeholder="Enter your email" required>
+
             <textarea name="message" placeholder="Enter your message" required></textarea>
 
             <button class="btn" type="submit">Send</button>
@@ -107,41 +94,6 @@
     </div>
 
 </div>
-
-<!-- POPUPS -->
-<div id="successPopup" class="popup success">✅ Message sent successfully!</div>
-<div id="errorPopup" class="popup error">❌ Failed to send!</div>
-
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    let formData = new FormData(this);
-
-    fetch("https://formspree.io/f/xaqaqjvk", {
-        method: "POST",
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    .then(response => {
-        if (response.ok) {
-            document.getElementById("successPopup").style.display = "block";
-            document.getElementById("contactForm").reset();
-
-            setTimeout(() => {
-                document.getElementById("successPopup").style.display = "none";
-            }, 3000);
-        } else {
-            document.getElementById("errorPopup").style.display = "block";
-        }
-    })
-    .catch(() => {
-        document.getElementById("errorPopup").style.display = "block";
-    });
-});
-</script>
 
 </body>
 </html>
