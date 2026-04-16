@@ -3,6 +3,49 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .login-box {
+            background: white;
+            width: 300px;
+            margin: 100px auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px gray;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #ff4b2b;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ff416c;
+        }
+
+        #error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,25 +55,31 @@
     <a href="about.html">📘 About</a>
     <a href="contact.html">📞 Contact</a>
     <a href="notes.html">📚 Notes</a>
-    <a href="login.html">🔐 Private</a>
 </nav>
 
-<h1>Login 🔐</h1>
+<div class="login-box">
 
-<input type="text" id="user" placeholder="Username"><br><br>
-<input type="password" id="pass" placeholder="Password"><br><br>
+    <h2>🔐 Login</h2>
 
-<button class="btn" onclick="login()">Login</button>
+    <input type="text" id="user" placeholder="Username"><br>
+    <input type="password" id="pass" placeholder="Password"><br>
 
-<p id="error"></p>
+    <button class="btn" onclick="login()">Login</button>
+
+    <p id="error"></p>
+
+</div>
 
 <script>
 function login() {
-    if (document.getElementById("user").value === "adhi" &&
-        document.getElementById("pass").value === "1234") {
-        window.location.href = "private.html"; // ✅ FIXED
+    let user = document.getElementById("user").value;
+    let pass = document.getElementById("pass").value;
+
+    if (user === "adhi" && pass === "1234") {
+        localStorage.setItem("loggedIn", "true"); // ✅ save login
+        window.location.href = "dashboard.html"; // 🚀 go to dashboard
     } else {
-        document.getElementById("error").innerText = "Wrong login!";
+        document.getElementById("error").innerText = "Wrong username or password!";
     }
 }
 </script>

@@ -31,10 +31,27 @@
             border-radius: 25px;
             cursor: pointer;
             font-size: 16px;
+            transition: 0.3s;
         }
 
         .btn:hover {
             background: #ff416c;
+            transform: scale(1.05);
+        }
+
+        /* ✅ POPUP */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #28a745;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 0 10px gray;
         }
     </style>
 </head>
@@ -45,29 +62,62 @@
     <h1>Contact</h1>
 </header>
 
-<!-- ✅ NAVBAR -->
 <nav>
     <a href="index.html">🏠 Home</a>
     <a href="about.html">📘 About</a>
     <a href="notes.html">📚 Notes</a>
-    <a href="login.html">🔐 Private</a>
+    <a href="login.html">🔐 Dashboard</a>
 </nav>
 
-<!-- ✅ FORM -->
+<!-- ✅ POPUP MESSAGE -->
+<div id="popup" class="popup">✅ Message sent successfully!</div>
+
 <div class="form-container">
 
-<form action="https://formspree.io/f/xaqaqjvk" method="POST">
+<form id="contactForm">
 
-    <input type="text" name="name" placeholder="Enter your name" required><br><br>
+    <input type="text" name="name" placeholder="Enter your name" required><br>
 
-    <input type="email" name="email" placeholder="Enter your email" required><br><br>
+    <input type="email" name="email" placeholder="Enter your email" required><br>
 
-    <textarea name="message" placeholder="Enter your message" required></textarea><br><br>
+    <textarea name="message" placeholder="Enter your message" required></textarea><br>
 
-    <button type="submit">Send</button>
+    <button class="btn" type="submit">Send</button>
 
 </form>
+
 </div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let formData = new FormData(this);
+
+    fetch("https://formspree.io/f/xaqaqjvk", {
+        method: "POST",
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("contactForm").reset();
+
+            setTimeout(() => {
+                document.getElementById("popup").style.display = "none";
+            }, 3000);
+        } else {
+            alert("❌ Error sending message");
+        }
+    })
+    .catch(error => {
+        alert("❌ Network error");
+    });
+});
+</script>
 
 </body>
 </html>

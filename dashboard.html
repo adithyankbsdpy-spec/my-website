@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<script>
+if (!localStorage.getItem("loggedIn")) {
+    window.location.href = "login.html";
+}
+</script>
+
+<header>
+    📂 My Dashboard
+    <button onclick="logout()" style="float:right; margin-right:20px;">Logout</button>
+</header>
+
+<nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="notes.html">📚 Notes</a>
+</nav>
+
+<div class="grid">
+
+    <a href="paint.docx" target="_blank">
+        <div class="card">📄 Paint Notes</div>
+    </a>
+
+    <a href="tyre-tech.docx" target="_blank">
+        <div class="card">📄 Tyre Tech</div>
+    </a>
+
+    <a href="private.html">
+        <div class="card">🎥 Private Video</div>
+    </a>
+
+</div>
+
+<script>
+function logout() {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

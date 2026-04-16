@@ -3,43 +3,36 @@
 <head>
     <title>Private Video</title>
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        .card {
-            background: white;
-            width: 350px;
-            margin: 40px auto;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px gray;
-            text-align: center;
-        }
-
-        video {
-            width: 100%;
-            border-radius: 10px;
-        }
-    </style>
 </head>
 
 <body>
 
+<!-- 🔐 SECURITY CHECK -->
+<script>
+if (!localStorage.getItem("loggedIn")) {
+    window.location.href = "login.html";
+}
+</script>
+
 <header>
-    <h1>🔐 Private Video</h1>
+    🔐 Private Video
 </header>
 
 <nav>
+    <a href="dashboard.html">📂 Dashboard</a>
     <a href="index.html">🏠 Home</a>
-    <a href="about.html">📘 About</a>
-    <a href="contact.html">📞 Contact</a>
 </nav>
 
-<div class="card">
-    <h3>🎥 Study Video</h3>
+<div class="grid">
 
-    <video controls>
-        <source src="jurjun.mp4" type="video/mp4">
-    </video>
+    <div class="card">
+        <h3>🎥 Study Video</h3>
+
+        <video controls style="width:100%; border-radius:10px;">
+            <source src="jurjun.mp4" type="video/mp4">
+        </video>
+    </div>
+
 </div>
 
 </body>
