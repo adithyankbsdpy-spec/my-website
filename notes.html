@@ -1,18 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Notes</title>
+    <title>Study Materials</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .container {
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            width: 320px;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        a {
+            display: block;
+            margin: 10px;
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
 
-<header><h1>Study Materials</h1></header>
+<header>
+    <h1>📚 Study Materials</h1>
+</header>
 
-<h3>Download Notes</h3>
+<nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">📘 About</a>
+    <a href="contact.html">📞 Contact</a>
+    <a href="login.html">🔐 Private</a>
+</nav>
 
-<a href="notes.pdf" target="_blank">📄 Download Notes</a><br><br>
-<a href="unit1.pdf" target="_blank">📄 Unit 1</a>
+<div class="container">
+
+    <!-- 🎥 VIDEO -->
+    <div class="card">
+        <h3>🎥 Study Video</h3>
+
+        <video controls>
+            <source src="jurjun.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- 📄 NOTES -->
+    <div class="card">
+        <h3>📄 Notes</h3>
+
+        <a href="paint.docx" target="_blank">📝 Paint Notes</a>
+        <a href="tyre-tech.docx" target="_blank">📝 Tyre Tech Notes</a>
+
+    </div>
+
+</div>
 
 </body>
 </html>

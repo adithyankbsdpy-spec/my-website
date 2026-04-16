@@ -3,21 +3,72 @@
 <head>
     <title>Contact</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .form-container {
+            margin-top: 40px;
+        }
+
+        input, textarea {
+            width: 280px;
+            padding: 12px;
+            margin: 12px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: #ff4b2b;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #ff416c;
+        }
+    </style>
 </head>
 
 <body>
 
-<header><h1>Contact</h1></header>
+<header>
+    <h1>Contact</h1>
+</header>
+
+<!-- ✅ NAVBAR -->
+<nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">📘 About</a>
+    <a href="notes.html">📚 Notes</a>
+    <a href="login.html">🔐 Private</a>
+</nav>
+
+<!-- ✅ FORM -->
+<div class="form-container">
 
 <form action="https://formspree.io/f/xaqaqjvk" method="POST">
 
-    <input type="text" name="name" placeholder="Enter name" required><br>
-    <input type="email" name="email" placeholder="Enter email" required><br>
-    <textarea name="message" placeholder="Message"></textarea><br>
+    <input type="text" name="name" placeholder="Enter your name" required><br>
+
+    <input type="email" name="email" placeholder="Enter your email" required><br>
+
+    <textarea name="message" placeholder="Enter your message"></textarea><br>
 
     <button class="btn" type="submit">Send</button>
 
 </form>
+
+</div>
 
 </body>
 </html>
