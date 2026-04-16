@@ -5,17 +5,35 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .form-container {
-            margin-top: 40px;
+        body {
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            font-family: Arial;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .form-box {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 320px;
         }
 
         input, textarea {
-            width: 280px;
+            width: 90%;
             padding: 12px;
-            margin: 12px;
-            border: 1px solid #ccc;
+            margin: 10px 0;
             border-radius: 10px;
-            font-size: 14px;
+            border: none;
+            outline: none;
         }
 
         textarea {
@@ -30,36 +48,33 @@
             border: none;
             border-radius: 25px;
             cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
         }
 
         .btn:hover {
             background: #ff416c;
-            transform: scale(1.05);
         }
 
-        /* ✅ POPUP */
         .popup {
             display: none;
             position: fixed;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: #28a745;
-            color: white;
             padding: 15px 25px;
             border-radius: 10px;
+            color: white;
             font-weight: bold;
-            box-shadow: 0 0 10px gray;
         }
+
+        .success { background: #28a745; }
+        .error { background: #dc3545; }
     </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Contact</h1>
+    <h1 style="text-align:center;">Contact</h1>
 </header>
 
 <nav>
@@ -69,24 +84,33 @@
     <a href="login.html">🔐 Dashboard</a>
 </nav>
 
-<!-- ✅ POPUP MESSAGE -->
-<div id="popup" class="popup">✅ Message sent successfully!</div>
+<div class="container">
 
-<div class="form-container">
+    <div class="form-box">
 
-<form id="contactForm">
+        <h2>Send Message 📩</h2>
 
-    <input type="text" name="name" placeholder="Enter your name" required><br>
+        <form id="contactForm">
 
-    <input type="email" name="email" placeholder="Enter your email" required><br>
+            <!-- ✅ IMPORTANT HIDDEN FIELDS -->
+            <input type="hidden" name="_subject" value="New message from website">
+            <input type="hidden" name="_template" value="table">
 
-    <textarea name="message" placeholder="Enter your message" required></textarea><br>
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <textarea name="message" placeholder="Enter your message" required></textarea>
 
-    <button class="btn" type="submit">Send</button>
+            <button class="btn" type="submit">Send</button>
 
-</form>
+        </form>
+
+    </div>
 
 </div>
+
+<!-- POPUPS -->
+<div id="successPopup" class="popup success">✅ Message sent successfully!</div>
+<div id="errorPopup" class="popup error">❌ Failed to send!</div>
 
 <script>
 document.getElementById("contactForm").addEventListener("submit", function(e) {
@@ -103,18 +127,18 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     })
     .then(response => {
         if (response.ok) {
-            document.getElementById("popup").style.display = "block";
+            document.getElementById("successPopup").style.display = "block";
             document.getElementById("contactForm").reset();
 
             setTimeout(() => {
-                document.getElementById("popup").style.display = "none";
+                document.getElementById("successPopup").style.display = "none";
             }, 3000);
         } else {
-            alert("❌ Error sending message");
+            document.getElementById("errorPopup").style.display = "block";
         }
     })
-    .catch(error => {
-        alert("❌ Network error");
+    .catch(() => {
+        document.getElementById("errorPopup").style.display = "block";
     });
 });
 </script>
