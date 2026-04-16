@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Login 🔐</h1>
+
+<input type="text" id="user" placeholder="Username"><br><br>
+<input type="password" id="pass" placeholder="Password"><br><br>
+
+<button class="btn" onclick="login()">Login</button>
+
+<p id="error"></p>
+
+<script>
+function login() {
+    if (document.getElementById("user").value === "adhi" &&
+        document.getElementById("pass").value === "1234") {
+        window.location.href = "notes.html";
+    } else {
+        document.getElementById("error").innerText = "Wrong login!";
+    }
+}
+</script>
+
+</body>
+</html>
