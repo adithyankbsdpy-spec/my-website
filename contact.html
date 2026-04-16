@@ -75,15 +75,18 @@
 
         <h2>Send Message 📩</h2>
 
-        <!-- ✅ WORKING FORM -->
+        <!-- ✅ FINAL WORKING FORM -->
         <form action="https://formspree.io/f/xaqaqjvk" method="POST">
 
+            <!-- Required hidden fields -->
             <input type="hidden" name="_subject" value="New message from website">
             <input type="hidden" name="_template" value="table">
 
+            <!-- User inputs -->
             <input type="text" name="name" placeholder="Enter your name" required>
 
-            <input type="email" name="email" placeholder="Enter your email" required>
+            <!-- IMPORTANT: reply email -->
+            <input type="email" name="_replyto" placeholder="Enter your email" required>
 
             <textarea name="message" placeholder="Enter your message" required></textarea>
 
