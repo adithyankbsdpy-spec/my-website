@@ -7,7 +7,6 @@
 
 <body>
 
-<!-- 🔐 MAIN LOGIN CHECK -->
 <script>
 if (!localStorage.getItem("loggedIn")) {
     window.location.href = "login.html";
@@ -27,7 +26,6 @@ if (!localStorage.getItem("loggedIn")) {
 
 <div class="grid">
 
-    <!-- 📄 PUBLIC NOTES -->
     <a href="paint.docx" target="_blank">
         <div class="card">📄 Paint Notes</div>
     </a>
@@ -36,14 +34,8 @@ if (!localStorage.getItem("loggedIn")) {
         <div class="card">📄 Tyre Tech Notes</div>
     </a>
 
-    <!-- 🎥 FIRST PRIVATE VIDEO -->
     <a href="private.html">
         <div class="card">🎥 Study Video 1</div>
-    </a>
-
-    <!-- 🎥 SECOND PRIVATE VIDEO -->
-    <a href="login2.html">
-        <div class="card">🎥 Premium Video 2</div>
     </a>
 
 </div>

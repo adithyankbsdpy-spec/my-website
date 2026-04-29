@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Second Video Login</title>
+    <title>Premium Video Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-    <h1>🔐 Premium Video Access</h1>
+    <h1>🎥 Premium Video Access</h1>
 </header>
 
 <nav>
     <a href="index.html">🏠 Home</a>
+    <a href="about.html">📘 About</a>
+    <a href="contact.html">📞 Contact</a>
 </nav>
 
 <div class="login-box">
 
-    <h2>Enter Access Details</h2>
+    <h2>Enter Premium Access Details</h2>
 
     <input type="text" id="user2" placeholder="Username"><br><br>
     <input type="password" id="pass2" placeholder="Password"><br><br>
@@ -37,7 +39,7 @@ function login2() {
         localStorage.setItem("premiumLoggedIn", "true");
         window.location.href = "private2.html";
     } else {
-        document.getElementById("error").innerText = "Wrong login!";
+        document.getElementById("error").innerText = "Wrong premium login!";
     }
 }
 </script>
