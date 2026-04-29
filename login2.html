@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Second Video Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🔐 Premium Video Access</h1>
+</header>
+
+<nav>
+    <a href="index.html">🏠 Home</a>
+</nav>
+
+<div class="login-box">
+
+    <h2>Enter Access Details</h2>
+
+    <input type="text" id="user2" placeholder="Username"><br><br>
+    <input type="password" id="pass2" placeholder="Password"><br><br>
+
+    <button class="btn" onclick="login2()">Login</button>
+
+    <p id="error"></p>
+
+</div>
+
+<script>
+function login2() {
+    let user = document.getElementById("user2").value;
+    let pass = document.getElementById("pass2").value;
+
+    if (user === "premium" && pass === "5678") {
+        localStorage.setItem("premiumLoggedIn", "true");
+        window.location.href = "private2.html";
+    } else {
+        document.getElementById("error").innerText = "Wrong login!";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Premium Video</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<script>
+if (!localStorage.getItem("premiumLoggedIn")) {
+    window.location.href = "login2.html";
+}
+</script>
+
+<header>
+    <h1>🎥 Premium Study Video</h1>
+</header>
+
+<nav>
+    <a href="dashboard.html">📂 Dashboard</a>
+    <a href="index.html">🏠 Home</a>
+</nav>
+
+<div class="grid">
+
+    <div class="card">
+        <h3>🎥 Exclusive Video</h3>
+
+        <video controls style="width:100%; border-radius:10px;">
+            <source src="video2.mp4" type="video/mp4">
+        </video>
+    </div>
+
+</div>
+
+</body>
+</html>
